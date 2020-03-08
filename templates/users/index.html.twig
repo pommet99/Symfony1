@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UsersController{% endblock %}
+
+{% block body %}
+    <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/tasks">Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" active>Users</a>
+                </li>
+    </ul>
+
+    <div class="container">
+        <div class="jumbotron">
+            {% if users %}
+            <h2>List of Users</h2>
+            {% for user in users %}
+                <div class="card-body bg-light m-5">
+                    <h5 class="card-title">{{user.name}} {{user.firstname}}</h5>
+                    <p class="card-text">{{user.mail}}</p>
+                    <p class='card-text'>Created at {{user.createdAt | date('d/m/Y')}}</p>
+                    <a href="user/{{user.id}}" class="btn btn-primary">See more</a>
+                </div>
+            {% endfor %}
+            {% else %}
+            <h1>There are no Users</h1>
+            {% endif %}
+        </div>
+
+        <div class="jumbotron">
+            <h2>Add a User</h2>
+        {{form(formUsers)}}
+        </div>
+    </div>
+
+<style>
+.nav-item{
+    background-color:lightgrey;
+    padding:3px;
+    margin:3px;
+    border-radius:10px;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/tasks">Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../" active>Users</a>
+                </li>
+    </ul>
+
+    <div class="container">
+        <div class="jumbotron">
+            {{ form_start(formUpdate) }}
+            {{form_row(formUpdate.name)}}
+            {{form_row(formUpdate.firstname)}}
+            {{form_row(formUpdate.mail)}}
+            {{ form_end(formUpdate) }}
+        </div>
+    </div>
+
+
+
+{% endblock body %}
